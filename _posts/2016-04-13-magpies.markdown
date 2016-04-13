@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "Don't heckle my Jekyll!"
+date:   2016-04-13 1:49:34 -0700
+categories: jekyll update
+---
+
+![My helpful screenshot](/assets/heckle_and_jeckle.png)
+
+I'm rather liking the [Jekyll site generation engine](https://jekyllrb.com) though I suppose I'll be regularly checking back to [Gruber's markdown guide](https://daringfireball.net/projects/markdown/syntax) repeatedly to look up what a specific ## tag ## does. 
+
+All in all I'm hoping this'll be semi weekly updated blog that'll contain what I'm covering in my various software/codemonkey studies. 
+
+## Stuff I'm interested in 
+
+### Functional Languages! ###
+>
+> *   Elixir.
+>
+> *   F#
+>
+> *   Scala
+>
+> *   Haskell (lower priority)
+
+### JVM! ###
+> Getting more familiar with the JVM world. I've been on `.NET` for the longest time and I'm way overdue to gain expertise on `C#`'s more popular cousin.
+> 
+> * Modern Java 8 
+>
+> * Spring
+> 
+> * Maven
+
+### Cloud! ###
+> * As much as people rag on certs - [Amazon's various aws certs] (https://aws.amazon.com/certification/)
+

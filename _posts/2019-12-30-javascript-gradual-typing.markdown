@@ -34,7 +34,7 @@ It looks simple enough, but you're probably going to be spending a decent amount
 
 You've probably heard of the type annotated javascript superset language [TypeScript][typescript-site] and its supplementary type definition repository [Definitely Typed][dt-site], which contains definitions for many popular NPM packages including AWS-SDK. This would be great except switching from Javascript to TypeScript requires adoption from the rest of the team, separate `.ts` files, and modifications to your build process. Is there any way to get this without futzing with your existing project?
 
-If you're using the Visual Studio Code editor it turns out you can enable [type checking on a per-file basis][type-annotation] by adding the line
+If you're using the Visual Studio Code editor it turns out you can enable [type checking on a per-file basis][type-annotation] by adding the comment to the beginning of the file
 ```javascript
 // @ts-check
 ```
@@ -58,7 +58,15 @@ It turns out VS Code has pulled in the AWS S3 type definitions in the background
 
 When you add the `Key` parameter (the unique file key in an S3 bucket), the red squiggly underline disappears and you have a properly formed object.
 
-Links for you:
+
+The same checking is useful for output types.
+```javascript
+  const { Location } = await s3.upload(parameters).promise();
+```
+You can mouseover s3.upload and see it returns a type of `AWS.S3.ManagedUpload.SendData`, which means the destructuring operation `{ Location }` is guaranteed to work and Location will be populated.
+
+
+Links:
 
 Type Annotation and Checking within javascript
  `https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files`

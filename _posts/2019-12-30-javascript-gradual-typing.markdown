@@ -58,26 +58,18 @@ It turns out VS Code has pulled in the AWS S3 type definitions in the background
 
 When you add the `Key` parameter (the unique file key in an S3 bucket), the red squiggly underline disappears and you have a properly formed object.
 
+Links for you:
 
-```javascript
+Type Annotation and Checking within javascript
+ `https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files`
 
-// type annotation https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files
-// JSDoc http://usejsdoc.org/tags-type.html
-/**
- * @param {AWS.S3.PutObjectRequest} uploadParameters - parameters for uploadng a font to s3
- * @param {boolean} [dryRun] - dont actually upload
- * @param {boolean} [continueProcessingAfterError] - ignore error and continue despite error
- */
-const uploadToS3 = async (uploadParameters) => {
-  try {
-    const { Location } = await s3.upload(uploadParameters).promise();
-    return Location;
-  } catch (e) {
-    process.exit(1);
-  }
-};
+JSDoc - the type annotation here is based after JSDoc, so looking at the docs can't hurt
 
-```
+`http://usejsdoc.org/tags-type.html`
+
+
+More to come, as with introducing gradual typing, learning this stuff is also a gradual process that pays you back the more you put into it.
+
 [typescript-site]: https://www.typescriptlang.org/
 [dt-site]: http://definitelytyped.org/
 [type-annotation]: https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files

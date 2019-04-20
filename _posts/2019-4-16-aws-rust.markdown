@@ -1,14 +1,24 @@
 ---
 layout: post
 title:  "The Perspicacious Polyglot's Programming Language Plethora"
-date:   2019-1-17 11:40:43 -0800
-categories: polyglot
+date:   2019-4-17 11:40:43 -0800
+categories: rust aws
 ---
-I like to play around with lots of different programming languages, but install too many and they pollute your working environment, so it's better to have them installed as a user instead of root. 
-Here's a way to get several of them installed into your unix user directory. 
-If things go wrong, or you get bored you can easily `rm -rf` the installation.
 
-# Initial Install
+# Rust on AWS lambda!
+
+```bash
+$ docker run --rm \
+    -v ${PWD}:/code \
+    -v ${HOME}/.cargo/registry:/root/.cargo/registry \
+    -v ${HOME}/.cargo/git:/root/.cargo/git \
+    softprops/lambda-rust:latest
+```
+
+`docker pull softprops/lambda-rust`
+
+
+
 Let's get ourselves a minimal debian environment. I'm using docker here, but you can use a native install, or a VM, or Windows Services for Linux with the ubuntu install.
 ```shell
 john@BigBox:~/git/JohnCSimon.github.io$  sudo docker run -ti debian /bin/bash

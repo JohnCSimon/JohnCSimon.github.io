@@ -15,8 +15,22 @@ $ docker run --rm \
     softprops/lambda-rust:latest
 ```
 
-`docker pull softprops/lambda-rust`
+```
+docker run --it \
+    -v ${PWD}:/code \
+    -v ${HOME}/.cargo/registry:/root/.cargo/registry \
+    -v ${HOME}/.cargo/git:/root/.cargo/git \
+    ubuntu bash
+```
 
+`docker pull softprops/lambda-rust`
+https://github.com/softprops/lambda-rust
+
+https://crates.io/crates/lambda_runtime
+
+https://github.com/lambci/docker-lambda#documentation
+
+https://aws.amazon.com/blogs/opensource/rust-runtime-for-aws-lambda/
 
 
 Let's get ourselves a minimal debian environment. I'm using docker here, but you can use a native install, or a VM, or Windows Services for Linux with the ubuntu install.

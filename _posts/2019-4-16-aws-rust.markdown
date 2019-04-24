@@ -6,7 +6,7 @@ categories: rust aws
 ---
 
 # Rust on AWS lambda!
-*Dissclaimer: I'm still a noob to serverless, so bear with me, plz*
+*Disclaimer: I'm still a noob to serverless, so bear with me, plz*
 
 Rust functions in serverless environments like AWS lambda are doable without too much extra pain. AWS currently provides starter kits and tooling for several runtimes you'd expect - Java, Node, .NET core, and newly, Go ... 
 BUT! There is nothing stopping us from uploading a binary that interacts via standard IO. 
@@ -17,8 +17,13 @@ Since Rust is a compiled to a native binary and uses no garbage collection, we h
 
 # disadvantages
 
-We can't just upload code to the aws console and expect it to run. We need to compile a binary that'll run on natively on Linux x64.
-So, if you're building on Mac or Windows this might pose a problem.
+We can't just upload code to the aws console and expect it to run. You can develop locally, but ultimately we'll need to upload a linux_x64 binary 
+
+So, if you're building on Mac or Windows this might pose a problem getting GNU GCC toolchain up and running.
+
+Docker to the rescue! `softprops/lambda-rust` provides a build environment that's just for this sort of thing. 
+The docker file starts with this line
+`FROM lambci/lambda:build-provided` which aims to replicate the AWS lambda runtime environment - it loads in a stable copy of rust and you run it like this from the directory with your .toml 
 
 ```bash
 $ docker run --rm \
@@ -27,6 +32,7 @@ $ docker run --rm \
     -v ${HOME}/.cargo/git:/root/.cargo/git \
     softprops/lambda-rust:latest
 ```
+this will take in your code and recompile it for the stable-x86_64-unknown-linux-gnu 
 
 `docker pull softprops/lambda-rust`
 https://github.com/softprops/lambda-rust

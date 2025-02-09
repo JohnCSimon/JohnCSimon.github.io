@@ -4,7 +4,7 @@ FROM ruby:3.4
 WORKDIR /site
 
 # Copy the site files
-COPY . /site
+COPY blog /site
 
 # Install site dependencies
 RUN bundle install

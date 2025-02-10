@@ -83,9 +83,12 @@
 
 <p>Except… text to speech generation is a high CPU task, Apple iOS doesn’t like long running tasks. You can’t scrub back and forth within a document like you can with an audio book or video. Also, it seems that this functionality within iOS doesn’t see as much development as other parts of the OS, it’s generally a janky experience more optimized for the vision impaired than my use case.</p>
 
-<p>So, <strong>we need an offline bulk text to speech generator</strong>. Luckily, macOS provides just the very thing hidden as one of the command line utilities - this is the <strong>say</strong> utility  <code class="language-plaintext highlighter-rouge">say -v Bad\ News "Captain, you are needed on the bridge" -w 200</code> but it can take additional parameters (see the man pages “man say” )</p>
+<p>So, <strong>we need an offline bulk text to speech generator</strong>. Luckily, macOS provides just the very thing hidden as one of the standard MacOS command line utilities - this is the <strong>say</strong> utility.</p>
 
-<p>example call:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>say -v Bad\ News "Captain, you are needed on the bridge" -w 200
+</code></pre></div></div>
+
+<p>example call - see the man pages “man say”</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>say <span class="nt">--voice</span><span class="o">=</span>Ava <span class="se">\ </span><span class="c"># use '?' to get a list of all the available voices</span>
     <span class="nt">--input-file</span> Steve_Jobs_<span class="se">\&amp;</span>_the_NeXT_Big_Thing_1993_djvu.txt <span class="se">\ </span><span class="c"># path to plain text file</span>
@@ -123,7 +126,30 @@ time for file in Steve1000__*; do time say \
 <p>But, I don’t want 14 parts, I’d like, say, three parts of 5000 lines each. I re-run the script …
 <code class="language-plaintext highlighter-rouge">split -d -l 5000 Steve_Jobs_\&amp;_the_NeXT_Big_Thing_1993_djvu.txt Steve5000__</code></p>
 
-<p>And each part takes 30 minutes to generate, a total of 90 minutes of CPU time.</p>
+<p>And each part takes 30 minutes to generate, for a total of 90 minutes</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lines of text per part</th>
+      <th>Time To Generate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1000</td>
+      <td>15 minutes</td>
+    </tr>
+    <tr>
+      <td>5000</td>
+      <td>90 minutes</td>
+    </tr>
+    <tr>
+      <td>15000</td>
+      <td>did not complete</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="so-whats-the-take-away-here">So, what’s the take away here?</h2>
 

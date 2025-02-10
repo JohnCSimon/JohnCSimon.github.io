@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.abhinavsaxena.com/moonwalk/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.abhinavsaxena.com/moonwalk/" rel="alternate" type="text/html" /><updated>2025-02-10T08:37:23+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/feed.xml</id><title type="html">🌲 johncsimon.github.io 🐦</title><subtitle>got some downtime so how&apos;s about we starts ourselves a blog ...</subtitle><author><name>Abhinav Saxena</name></author><entry><title type="html">Poor Man’s Audiobook Reader</title><link href="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html" rel="alternate" type="text/html" title="Poor Man’s Audiobook Reader" /><published>2025-02-09T18:04:18+00:00</published><updated>2025-02-09T18:04:18+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html">&lt;p&gt;I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - &lt;a href=&quot;https://www.goodreads.com/book/show/226316.Steve_Jobs_the_NeXT_Big_Thing&quot;&gt;Steve Jobs and the NeXT Big Thing&lt;/a&gt;.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.abhinavsaxena.com/moonwalk/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.abhinavsaxena.com/moonwalk/" rel="alternate" type="text/html" /><updated>2025-02-10T18:19:23+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/feed.xml</id><title type="html">🌲 johncsimon.github.io 🐦</title><subtitle>got some downtime so how&apos;s about we starts ourselves a blog ...</subtitle><author><name>Abhinav Saxena</name></author><entry><title type="html">Poor Man’s Audiobook Reader</title><link href="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html" rel="alternate" type="text/html" title="Poor Man’s Audiobook Reader" /><published>2025-02-09T18:04:18+00:00</published><updated>2025-02-09T18:04:18+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html">&lt;p&gt;I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - &lt;a href=&quot;https://www.goodreads.com/book/show/226316.Steve_Jobs_the_NeXT_Big_Thing&quot;&gt;Steve Jobs and the NeXT Big Thing&lt;/a&gt;.
 &lt;img src=&quot;jobscover.png&quot; alt=&quot;Steve Jobs and the NeXT Big Thing&quot; width=&quot;250&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Today, popular culture paints him as an iconic figure, but when the book was written in 1993 NeXT was a money pit, only kept alive with cash infusions from outside investors as money was burnt. It’s a wild ride, I highly recommend it, especially with hindsight.&lt;/p&gt;
@@ -15,9 +15,12 @@
 
 &lt;p&gt;Except… text to speech generation is a high CPU task, Apple iOS doesn’t like long running tasks. You can’t scrub back and forth within a document like you can with an audio book or video. Also, it seems that this functionality within iOS doesn’t see as much development as other parts of the OS, it’s generally a janky experience more optimized for the vision impaired than my use case.&lt;/p&gt;
 
-&lt;p&gt;So, &lt;strong&gt;we need an offline bulk text to speech generator&lt;/strong&gt;. Luckily, macOS provides just the very thing hidden as one of the command line utilities - this is the &lt;strong&gt;say&lt;/strong&gt; utility  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;say -v Bad\ News &quot;Captain, you are needed on the bridge&quot; -w 200&lt;/code&gt; but it can take additional parameters (see the man pages “man say” )&lt;/p&gt;
+&lt;p&gt;So, &lt;strong&gt;we need an offline bulk text to speech generator&lt;/strong&gt;. Luckily, macOS provides just the very thing hidden as one of the standard MacOS command line utilities - this is the &lt;strong&gt;say&lt;/strong&gt; utility.&lt;/p&gt;
 
-&lt;p&gt;example call:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;say -v Bad\ News &quot;Captain, you are needed on the bridge&quot; -w 200
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;example call - see the man pages “man say”&lt;/p&gt;
 
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;say &lt;span class=&quot;nt&quot;&gt;--voice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Ava &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# use &apos;?&apos; to get a list of all the available voices&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;--input-file&lt;/span&gt; Steve_Jobs_&lt;span class=&quot;se&quot;&gt;\&amp;amp;&lt;/span&gt;_the_NeXT_Big_Thing_1993_djvu.txt &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# path to plain text file&lt;/span&gt;
@@ -55,7 +58,30 @@ time for file in Steve1000__*; do time say \
 &lt;p&gt;But, I don’t want 14 parts, I’d like, say, three parts of 5000 lines each. I re-run the script …
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;split -d -l 5000 Steve_Jobs_\&amp;amp;_the_NeXT_Big_Thing_1993_djvu.txt Steve5000__&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;And each part takes 30 minutes to generate, a total of 90 minutes of CPU time.&lt;/p&gt;
+&lt;p&gt;And each part takes 30 minutes to generate, for a total of 90 minutes&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Lines of text per part&lt;/th&gt;
+      &lt;th&gt;Time To Generate&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1000&lt;/td&gt;
+      &lt;td&gt;15 minutes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5000&lt;/td&gt;
+      &lt;td&gt;90 minutes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;15000&lt;/td&gt;
+      &lt;td&gt;did not complete&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;so-whats-the-take-away-here&quot;&gt;So, what’s the take away here?&lt;/h2&gt;
 

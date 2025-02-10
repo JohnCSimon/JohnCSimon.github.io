@@ -22,9 +22,13 @@ If you were to use Text to Speech functionality say - [speak visible content](ht
 
 Except... text to speech generation is a high CPU task, Apple iOS doesn't like long running tasks. You can't scrub back and forth within a document like you can with an audio book or video. Also, it seems that this functionality within iOS doesn't see as much development as other parts of the OS, it's generally a janky experience more optimized for the vision impaired than my use case.
 
-So, **we need an offline bulk text to speech generator**. Luckily, macOS provides just the very thing hidden as one of the command line utilities - this is the **say** utility  `say -v Bad\ News "Captain, you are needed on the bridge" -w 200` but it can take additional parameters (see the man pages "man say" )
+So, **we need an offline bulk text to speech generator**. Luckily, macOS provides just the very thing hidden as one of the standard MacOS command line utilities - this is the **say** utility.
 
-example call:
+```
+say -v Bad\ News "Captain, you are needed on the bridge" -w 200
+```
+
+example call - see the man pages "man say"
 
 ```sh
 say --voice=Ava \ # use '?' to get a list of all the available voices
@@ -65,7 +69,13 @@ Well that's interesting, the process completed in 10 minutes and produced 14 fil
 But, I don't want 14 parts, I'd like, say, three parts of 5000 lines each. I re-run the script ...
 `split -d -l 5000 Steve_Jobs_\&_the_NeXT_Big_Thing_1993_djvu.txt Steve5000__`
 
-And each part takes 30 minutes to generate, a total of 90 minutes of CPU time.
+And each part takes 30 minutes to generate, for a total of 90 minutes
+
+| Lines of text per part | Time To Generate |
+| -------- | ------- |
+| 1000 | 15 minutes |
+| 5000 | 90 minutes |
+| 15000 | did not complete |
 
 ## So, what's the take away here?
 

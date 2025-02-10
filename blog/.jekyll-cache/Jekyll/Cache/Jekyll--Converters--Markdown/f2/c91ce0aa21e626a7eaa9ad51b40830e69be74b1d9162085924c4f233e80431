@@ -1,0 +1,71 @@
+I"�<p>Recently I had to write a file uploader for AWS S3 in node.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">const</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">aws-sdk</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">s3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">S3</span><span class="p">({</span> <span class="na">signatureVersion</span><span class="p">:</span> <span class="dl">'</span><span class="s1">v4</span><span class="dl">'</span> <span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">uploadToS3</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">parameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">Bucket</span><span class="p">:</span> <span class="nx">s3Bucket</span><span class="p">,</span>
+    <span class="na">Body</span><span class="p">:</span> <span class="nx">fileData</span><span class="p">,</span>
+  <span class="p">};</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span> <span class="nx">Location</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">parameters</span><span class="p">).</span><span class="nx">promise</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">Location</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>It looks simple enough, but you’re probably going to be spending a decent amount of time googling around for examples if the parameters in an s3 call are more than just basic hello world. Add to this javascript is a dynamically typed language; you won’t know if your code will work until you run it, but you’re also working with Amazon’s AWS SDK, it’s derived from Java and expects a few things beyond just numbers and strings. In the end, you’d be beating your head against the stack traces and other <code class="language-plaintext highlighter-rouge">HTTP 400 - Bad Request</code> errors coming out of the S3 service.</p>
+
+<p><strong>Is there anything that can help guarantee your calls to <code class="language-plaintext highlighter-rouge">upload</code> are legit with some sort of type checking?</strong></p>
+
+<p>You’ve probably heard of the type annotated javascript superset language <a href="https://www.typescriptlang.org/">TypeScript</a> and its supplementary type definition repository <a href="http://definitelytyped.org/">Definitely Typed</a>, which contains definitions for many popular NPM packages including AWS-SDK. This would be great except switching from Javascript to TypeScript requires adoption from the rest of the team, separate <code class="language-plaintext highlighter-rouge">.ts</code> files, and modifications to your build process. Is there any way to get this without futzing with your existing project?</p>
+
+<p>If you’re using the Visual Studio Code editor it turns out you can enable <a href="https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files">type checking on a per-file basis</a> by adding the comment to the beginning of the file</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @ts-check</span>
+</code></pre></div></div>
+
+<p>to the beginning of your file.
+<img src="typeError.png" alt="typeerror" /></p>
+
+<p>The parameters variable is highlighted in red, and when you mouseover it you’ll see:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Argument of type '{ Bucket: string; Body: string; }' is not assignable to parameter of type 'PutObjectRequest'.
+  Property 'Key' is missing in type '{ Bucket: string; Body: string; }' but required in type 'PutObjectRequest'.ts(2345)
+s3.d.ts(3640, 5): 'Key' is declared here.
+const parameters: {
+    Bucket: string;
+    Body: string;
+}
+</code></pre></div></div>
+
+<p>There are a bunch of things happening here!</p>
+
+<p>It turns out VS Code has pulled in the AWS S3 type definitions in the background. The type of the parameter parameter that <code class="language-plaintext highlighter-rouge">s3.upload</code> takes is called <code class="language-plaintext highlighter-rouge">PutObjectRequest</code>. The Type Script compiler is kvetching over a missing required field it needs to say the <code class="language-plaintext highlighter-rouge">parameters</code> variable is of that type. There’s nothing stopping you from running the code as it stands here, it’ll just crash at runtime.</p>
+
+<p>When you add the <code class="language-plaintext highlighter-rouge">Key</code> parameter (the unique file key in an S3 bucket), the red squiggly underline disappears and you have a properly formed object.</p>
+
+<p>The same checking is useful for output types.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="p">{</span> <span class="nx">Location</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">parameters</span><span class="p">).</span><span class="nx">promise</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>You can mouseover s3.upload and see it returns a type of <code class="language-plaintext highlighter-rouge">AWS.S3.ManagedUpload.SendData</code>, which means the destructuring operation <code class="language-plaintext highlighter-rouge">{ Location }</code> is guaranteed to work and Location will be populated.</p>
+
+<p>Links:</p>
+
+<p>Type Annotation and Checking within javascript
+ <code class="language-plaintext highlighter-rouge">https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files</code></p>
+
+<p>JSDoc - the type annotation here is based after JSDoc, so looking at the docs can’t hurt</p>
+
+<p><code class="language-plaintext highlighter-rouge">http://usejsdoc.org/tags-type.html</code></p>
+
+<p>More to come, as with introducing gradual typing, learning this stuff is also a gradual process that pays you back the more you put into it.</p>
+
+:ET

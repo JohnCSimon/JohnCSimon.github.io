@@ -1,0 +1,4 @@
+I"�<p>I like to play around with lots of different programming languages, but install too many and they pollute your working environment, so it’s better to have them installed as a user instead of root. 
+Here’s a way to get several of them installed into your unix user directory. 
+If things go wrong, or you get bored you can easily <code class="language-plaintext highlighter-rouge">rm -rf</code> the installation.</p>
+:ET

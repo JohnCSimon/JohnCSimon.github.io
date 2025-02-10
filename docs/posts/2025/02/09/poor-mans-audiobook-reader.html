@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="html" data-theme="dark"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    
+      Poor Man's Audiobook Reader
+    
+  </title>
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Poor Man’s Audiobook Reader" />
+<meta name="author" content="Abhinav Saxena" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - Steve Jobs and the NeXT Big Thing." />
+<meta property="og:description" content="I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - Steve Jobs and the NeXT Big Thing." />
+<link rel="canonical" href="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html" />
+<meta property="og:url" content="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html" />
+<meta property="og:site_name" content="🌲 johncsimon.github.io 🐦" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-02-09T18:04:18+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Poor Man’s Audiobook Reader" />
+<script type="application/ld+json">
+{"url":"https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html","@type":"BlogPosting","headline":"Poor Man’s Audiobook Reader","dateModified":"2025-02-09T18:04:18+00:00","datePublished":"2025-02-09T18:04:18+00:00","description":"I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - Steve Jobs and the NeXT Big Thing.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html"},"author":{"@type":"Person","name":"Abhinav Saxena"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="https://www.abhinavsaxena.com/moonwalk/feed.xml" title="🌲 johncsimon.github.io 🐦" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="/./logo.png" />
+  <link rel="stylesheet" href="https://www.abhinavsaxena.com/moonwalk/assets/css/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" defer></script>
+<script type="text/javascript">
+  document.addEventListener('turbolinks:load', themeChange);
+    function themeChange(){
+        let button = document.querySelector('.theme-toggle');
+
+        button.addEventListener('click', function(e){
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            if(currentTheme === 'dark') {
+                transition();
+                document.documentElement.setAttribute('data-theme','light');
+            } else {
+                transition();
+                document.documentElement.setAttribute('data-theme', 'dark');
+              }
+          });
+
+        // Adds the 'transition' class to <html> for CSS fun
+        let transition = () =>{
+            document.documentElement.classList.add('transition');
+            window.setTimeout(()=>{
+                document.documentElement.classList.remove('transition');
+              }, 1000);
+          }
+      }
+</script>
+
+
+</head>
+<body>
+    <main class="page-content" aria-label="Content">
+        <div class="w">
+            <a href="https://www.abhinavsaxena.com/moonwalk">home..</a>
+<h1>Poor Man's Audiobook Reader</h1>
+<p>I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - <a href="https://www.goodreads.com/book/show/226316.Steve_Jobs_the_NeXT_Big_Thing">Steve Jobs and the NeXT Big Thing</a>.
+<img src="jobscover.png" alt="Steve Jobs and the NeXT Big Thing" width="250" /></p>
+
+<p>Today, popular culture paints him as an iconic figure, but when the book was written in 1993 NeXT was a money pit, only kept alive with cash infusions from outside investors as money was burnt. It’s a wild ride, I highly recommend it, especially with hindsight.</p>
+
+<p>Unfortunately, reading books cover to cover is hard for me. I rely on audiobooks so I can ride the bus or do dishes while I absorb a book. Unfortunately, there is no audiobook release of this book.</p>
+
+<p>I found the book in PDF form on <a href="https://archive.org/details/steve_jobs_the_next_big_thing_1993_pdf__mlib">archive.org</a>. Unfortunately PDFs are more of a page layout language like HTML instead of a store of text.</p>
+
+<p>If you were to use Text to Speech functionality say - <a href="https://support.apple.com/guide/mac-help/have-your-mac-speak-text-thats-on-the-screen-mh27448/mac">speak visible content</a> on your PC or phone on a typical website or PDF you have to ‘baby sit’ what is being read so that the reader doesn’t get ‘lost’ or get caught up on footnotes or stop abruptly or be unable to handle a change in fonts. It’s not obvious how broken this functionality is.</p>
+
+<p><img src="iostextreader.png" alt="Speak Visible Content" width="250" /></p>
+
+<p><strong>Plain text</strong> is the best for a text to speech program. Luckily, archive.org provides a plain text version of the book which was created via optical character recognition (see the archive.org site). Short of a few footnotes, it’s 95% of what we need.</p>
+
+<p>Except… text to speech generation is a high CPU task, Apple iOS doesn’t like long running tasks. You can’t scrub back and forth within a document like you can with an audio book or video. Also, it seems that this functionality within iOS doesn’t see as much development as other parts of the OS, it’s generally a janky experience more optimized for the vision impaired than my use case.</p>
+
+<p>So, <strong>we need an offline bulk text to speech generator</strong>. Luckily, macOS provides just the very thing hidden as one of the command line utilities - this is the <strong>say</strong> utility  <code class="language-plaintext highlighter-rouge">say -v Bad\ News "Captain, you are needed on the bridge" -w 200</code> but it can take additional parameters (see the man pages “man say” )</p>
+
+<p>example call:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>say <span class="nt">--voice</span><span class="o">=</span>Ava <span class="se">\ </span><span class="c"># use '?' to get a list of all the available voices</span>
+    <span class="nt">--input-file</span> Steve_Jobs_<span class="se">\&amp;</span>_the_NeXT_Big_Thing_1993_djvu.txt <span class="se">\ </span><span class="c"># path to plain text file</span>
+    <span class="nt">--data-format</span><span class="o">=</span>m4b <span class="se">\ </span><span class="c"># File for the output format, m4b is the apple's audiobook equavalent of m4a see 'say --file-format='?' ' for the list of these</span>
+    <span class="nt">--output-file</span><span class="o">=</span>MyOutputFile.m4b <span class="se">\ </span><span class="c"># output file</span>
+    <span class="nt">--rate</span><span class="o">=</span>150 <span class="c"># speaking rate in words per minute, to your taste.</span>
+    <span class="nt">--progress</span> <span class="c"># print the progress</span>
+</code></pre></div></div>
+
+<p>This is awesome! But after letting it run for one later the CPU is still at 100% and the process is consuming 2.3 GB of RAM and the output file MyOutoutFile.m4b is about 50 MB on disk.</p>
+
+<p>Something is up … let’s see the word count of this file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wc -lw Steve_Jobs_\&amp;_the_NeXT_Big_Thing_1993_djvu.txt
+14908  122808 Steve_Jobs_&amp;_the_NeXT_Big_Thing_1993_djvu.txt
+</code></pre></div></div>
+
+<p>so 15000 lines, 122000 words - at 150 words / minute this is about 13 hours to read through all of it, and an audiobook of that length is roughly 1 GB.</p>
+
+<p>Maybe the compression or some other non-default setting is mucking with this? I remove everything except the input and output files parameters and I still see the same poor performnace.</p>
+
+<p>Let’s break this down into 1000 line chunks, and feed each one to <strong>say</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>split -d -l 1000 Steve_Jobs_\&amp;_the_NeXT_Big_Thing_1993_djvu.txt Steve1000__
+time for file in Steve1000__*; do time say \
+    -f "$file" \
+    -o "$file.m4b" \
+    --file-format=m4bf \
+    --rate=150 \
+    --progress; done
+</code></pre></div></div>
+
+<p>Well that’s interesting, the process completed in 10 minutes and produced 14 files that comprise the audio book.</p>
+
+<p>But, I don’t want 14 parts, I’d like, say, three parts of 5000 lines each. I re-run the script …
+<code class="language-plaintext highlighter-rouge">split -d -l 5000 Steve_Jobs_\&amp;_the_NeXT_Big_Thing_1993_djvu.txt Steve5000__</code></p>
+
+<p>And each part takes 30 minutes to generate, a total of 90 minutes of CPU time.</p>
+
+<h2 id="so-whats-the-take-away-here">So, what’s the take away here?</h2>
+
+<p>Intuitively, generating voice from a text file would be a linear operation. Text goes in, Audio goes out, no doubling back through a stream. But, there’s clearly a bug in the implementation of <strong>say</strong> that makes the run time be something larger than O(n^2). Apparently having <strong>say</strong> spew out hours of audio for an entire book was never a tested use case. Except, <strong>say</strong> has been around for as long as MacOSX has been around, one would think all the bugs have been worked out. Apparently not; you have to test and test and test, there will always be surprises.</p>
+
+
+            <button title="Toggle Theme" class="theme-toggle">
+  <svg viewBox="0 0 32 32" width="24" height="24" fill="currentcolor">
+    <circle cx="16" cy="16" r="14" fill="none" stroke="currentcolor" stroke-width="4"></circle>
+    <path d="
+             M 16 0
+             A 16 16 0 0 0 16 32
+             z">
+    </path>
+  </svg>
+</button>
+
+        </div>
+    </main>
+
+    
+
+  </body>
+</html>

@@ -17,15 +17,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Recently I had to write a file uploader for AWS S3 in node." />
 <meta property="og:description" content="Recently I had to write a file uploader for AWS S3 in node." />
-<link rel="canonical" href="https://www.abhinavsaxena.com/moonwalk/javascript/2018/12/29/javascript-gradual-typing.html" />
-<meta property="og:url" content="https://www.abhinavsaxena.com/moonwalk/javascript/2018/12/29/javascript-gradual-typing.html" />
+<link rel="canonical" href="https://www.abhinavsaxena.com/moonwalk/posts/2018/12/29/javascript-gradual-typing.html" />
+<meta property="og:url" content="https://www.abhinavsaxena.com/moonwalk/posts/2018/12/29/javascript-gradual-typing.html" />
 <meta property="og:site_name" content="🌲 johncsimon.github.io 🐦" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-12-29T19:40:43+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Gradual Typing With Javascript and VS Code" />
 <script type="application/ld+json">
-{"url":"https://www.abhinavsaxena.com/moonwalk/javascript/2018/12/29/javascript-gradual-typing.html","@type":"BlogPosting","headline":"Gradual Typing With Javascript and VS Code","dateModified":"2018-12-29T19:40:43+00:00","datePublished":"2018-12-29T19:40:43+00:00","description":"Recently I had to write a file uploader for AWS S3 in node.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.abhinavsaxena.com/moonwalk/javascript/2018/12/29/javascript-gradual-typing.html"},"author":{"@type":"Person","name":"Abhinav Saxena"},"@context":"https://schema.org"}</script>
+{"url":"https://www.abhinavsaxena.com/moonwalk/posts/2018/12/29/javascript-gradual-typing.html","@type":"BlogPosting","headline":"Gradual Typing With Javascript and VS Code","dateModified":"2018-12-29T19:40:43+00:00","datePublished":"2018-12-29T19:40:43+00:00","description":"Recently I had to write a file uploader for AWS S3 in node.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.abhinavsaxena.com/moonwalk/posts/2018/12/29/javascript-gradual-typing.html"},"author":{"@type":"Person","name":"Abhinav Saxena"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link type="application/atom+xml" rel="alternate" href="https://www.abhinavsaxena.com/moonwalk/feed.xml" title="🌲 johncsimon.github.io 🐦" />
@@ -94,9 +94,11 @@
 <p>You’ve probably heard of the type annotated javascript superset language <a href="https://www.typescriptlang.org/">TypeScript</a> and its supplementary type definition repository <a href="http://definitelytyped.org/">Definitely Typed</a>, which contains definitions for many popular NPM packages including AWS-SDK. This would be great except switching from Javascript to TypeScript requires adoption from the rest of the team, separate <code class="language-plaintext highlighter-rouge">.ts</code> files, and modifications to your build process. Is there any way to get this without futzing with your existing project?</p>
 
 <p>If you’re using the Visual Studio Code editor it turns out you can enable <a href="https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files">type checking on a per-file basis</a> by adding the comment to the beginning of the file</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @ts-check</span>
 </code></pre></div></div>
-<p>to the beginning of your file. 
+
+<p>to the beginning of your file.
 <img src="typeError.png" alt="typeerror" /></p>
 
 <p>The parameters variable is highlighted in red, and when you mouseover it you’ll see:</p>
@@ -109,6 +111,7 @@ const parameters: {
     Body: string;
 }
 </code></pre></div></div>
+
 <p>There are a bunch of things happening here!</p>
 
 <p>It turns out VS Code has pulled in the AWS S3 type definitions in the background. The type of the parameter parameter that <code class="language-plaintext highlighter-rouge">s3.upload</code> takes is called <code class="language-plaintext highlighter-rouge">PutObjectRequest</code>. The Type Script compiler is kvetching over a missing required field it needs to say the <code class="language-plaintext highlighter-rouge">parameters</code> variable is of that type. There’s nothing stopping you from running the code as it stands here, it’ll just crash at runtime.</p>
@@ -116,8 +119,10 @@ const parameters: {
 <p>When you add the <code class="language-plaintext highlighter-rouge">Key</code> parameter (the unique file key in an S3 bucket), the red squiggly underline disappears and you have a properly formed object.</p>
 
 <p>The same checking is useful for output types.</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="p">{</span> <span class="nx">Location</span> <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">parameters</span><span class="p">).</span><span class="nx">promise</span><span class="p">();</span>
 </code></pre></div></div>
+
 <p>You can mouseover s3.upload and see it returns a type of <code class="language-plaintext highlighter-rouge">AWS.S3.ManagedUpload.SendData</code>, which means the destructuring operation <code class="language-plaintext highlighter-rouge">{ Location }</code> is guaranteed to work and Location will be populated.</p>
 
 <p>Links:</p>

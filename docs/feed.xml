@@ -1,6 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.abhinavsaxena.com/moonwalk/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.abhinavsaxena.com/moonwalk/" rel="alternate" type="text/html" /><updated>2025-02-09T20:55:37+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/feed.xml</id><title type="html">🌲 johncsimon.github.io 🐦</title><subtitle>got some downtime so how&apos;s about we starts ourselves a blog ...</subtitle><author><name>Abhinav Saxena</name></author><entry><title type="html">Hope this works</title><link href="https://www.abhinavsaxena.com/moonwalk/utilities/2025/02/08/blah.html" rel="alternate" type="text/html" title="Hope this works" /><published>2025-02-08T18:04:18+00:00</published><updated>2025-02-08T18:04:18+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/utilities/2025/02/08/blah</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/utilities/2025/02/08/blah.html">&lt;p&gt;Blah blah blah blah okay okay !!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.abhinavsaxena.com/moonwalk/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.abhinavsaxena.com/moonwalk/" rel="alternate" type="text/html" /><updated>2025-02-10T08:37:23+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/feed.xml</id><title type="html">🌲 johncsimon.github.io 🐦</title><subtitle>got some downtime so how&apos;s about we starts ourselves a blog ...</subtitle><author><name>Abhinav Saxena</name></author><entry><title type="html">Poor Man’s Audiobook Reader</title><link href="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html" rel="alternate" type="text/html" title="Poor Man’s Audiobook Reader" /><published>2025-02-09T18:04:18+00:00</published><updated>2025-02-09T18:04:18+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html">&lt;p&gt;I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - &lt;a href=&quot;https://www.goodreads.com/book/show/226316.Steve_Jobs_the_NeXT_Big_Thing&quot;&gt;Steve Jobs and the NeXT Big Thing&lt;/a&gt;.
+&lt;img src=&quot;jobscover.png&quot; alt=&quot;Steve Jobs and the NeXT Big Thing&quot; width=&quot;250&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Try again&lt;/p&gt;</content><author><name>Abhinav Saxena</name></author><category term="utilities" /><summary type="html">Blah blah blah blah okay okay !!</summary></entry><entry><title type="html">The Perspicacious Polyglot’s Programming Language Plethora</title><link href="https://www.abhinavsaxena.com/moonwalk/polyglot/2019/01/17/polyglot-setup.html" rel="alternate" type="text/html" title="The Perspicacious Polyglot’s Programming Language Plethora" /><published>2019-01-17T19:40:43+00:00</published><updated>2019-01-17T19:40:43+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/polyglot/2019/01/17/polyglot-setup</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/polyglot/2019/01/17/polyglot-setup.html">&lt;p&gt;I like to play around with lots of different programming languages, but install too many and they pollute your working environment, so it’s better to have them installed as a user instead of root. 
+&lt;p&gt;Today, popular culture paints him as an iconic figure, but when the book was written in 1993 NeXT was a money pit, only kept alive with cash infusions from outside investors as money was burnt. It’s a wild ride, I highly recommend it, especially with hindsight.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, reading books cover to cover is hard for me. I rely on audiobooks so I can ride the bus or do dishes while I absorb a book. Unfortunately, there is no audiobook release of this book.&lt;/p&gt;
+
+&lt;p&gt;I found the book in PDF form on &lt;a href=&quot;https://archive.org/details/steve_jobs_the_next_big_thing_1993_pdf__mlib&quot;&gt;archive.org&lt;/a&gt;. Unfortunately PDFs are more of a page layout language like HTML instead of a store of text.&lt;/p&gt;
+
+&lt;p&gt;If you were to use Text to Speech functionality say - &lt;a href=&quot;https://support.apple.com/guide/mac-help/have-your-mac-speak-text-thats-on-the-screen-mh27448/mac&quot;&gt;speak visible content&lt;/a&gt; on your PC or phone on a typical website or PDF you have to ‘baby sit’ what is being read so that the reader doesn’t get ‘lost’ or get caught up on footnotes or stop abruptly or be unable to handle a change in fonts. It’s not obvious how broken this functionality is.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;iostextreader.png&quot; alt=&quot;Speak Visible Content&quot; width=&quot;250&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Plain text&lt;/strong&gt; is the best for a text to speech program. Luckily, archive.org provides a plain text version of the book which was created via optical character recognition (see the archive.org site). Short of a few footnotes, it’s 95% of what we need.&lt;/p&gt;
+
+&lt;p&gt;Except… text to speech generation is a high CPU task, Apple iOS doesn’t like long running tasks. You can’t scrub back and forth within a document like you can with an audio book or video. Also, it seems that this functionality within iOS doesn’t see as much development as other parts of the OS, it’s generally a janky experience more optimized for the vision impaired than my use case.&lt;/p&gt;
+
+&lt;p&gt;So, &lt;strong&gt;we need an offline bulk text to speech generator&lt;/strong&gt;. Luckily, macOS provides just the very thing hidden as one of the command line utilities - this is the &lt;strong&gt;say&lt;/strong&gt; utility  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;say -v Bad\ News &quot;Captain, you are needed on the bridge&quot; -w 200&lt;/code&gt; but it can take additional parameters (see the man pages “man say” )&lt;/p&gt;
+
+&lt;p&gt;example call:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;say &lt;span class=&quot;nt&quot;&gt;--voice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Ava &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# use &apos;?&apos; to get a list of all the available voices&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--input-file&lt;/span&gt; Steve_Jobs_&lt;span class=&quot;se&quot;&gt;\&amp;amp;&lt;/span&gt;_the_NeXT_Big_Thing_1993_djvu.txt &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# path to plain text file&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--data-format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m4b &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# File for the output format, m4b is the apple&apos;s audiobook equavalent of m4a see &apos;say --file-format=&apos;?&apos; &apos; for the list of these&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--output-file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;MyOutputFile.m4b &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# output file&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;150 &lt;span class=&quot;c&quot;&gt;# speaking rate in words per minute, to your taste.&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--progress&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# print the progress&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is awesome! But after letting it run for one later the CPU is still at 100% and the process is consuming 2.3 GB of RAM and the output file MyOutoutFile.m4b is about 50 MB on disk.&lt;/p&gt;
+
+&lt;p&gt;Something is up … let’s see the word count of this file.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wc -lw Steve_Jobs_\&amp;amp;_the_NeXT_Big_Thing_1993_djvu.txt
+14908  122808 Steve_Jobs_&amp;amp;_the_NeXT_Big_Thing_1993_djvu.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;so 15000 lines, 122000 words - at 150 words / minute this is about 13 hours to read through all of it, and an audiobook of that length is roughly 1 GB.&lt;/p&gt;
+
+&lt;p&gt;Maybe the compression or some other non-default setting is mucking with this? I remove everything except the input and output files parameters and I still see the same poor performnace.&lt;/p&gt;
+
+&lt;p&gt;Let’s break this down into 1000 line chunks, and feed each one to &lt;strong&gt;say&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;split -d -l 1000 Steve_Jobs_\&amp;amp;_the_NeXT_Big_Thing_1993_djvu.txt Steve1000__
+time for file in Steve1000__*; do time say \
+    -f &quot;$file&quot; \
+    -o &quot;$file.m4b&quot; \
+    --file-format=m4bf \
+    --rate=150 \
+    --progress; done
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Well that’s interesting, the process completed in 10 minutes and produced 14 files that comprise the audio book.&lt;/p&gt;
+
+&lt;p&gt;But, I don’t want 14 parts, I’d like, say, three parts of 5000 lines each. I re-run the script …
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;split -d -l 5000 Steve_Jobs_\&amp;amp;_the_NeXT_Big_Thing_1993_djvu.txt Steve5000__&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And each part takes 30 minutes to generate, a total of 90 minutes of CPU time.&lt;/p&gt;
+
+&lt;h2 id=&quot;so-whats-the-take-away-here&quot;&gt;So, what’s the take away here?&lt;/h2&gt;
+
+&lt;p&gt;Intuitively, generating voice from a text file would be a linear operation. Text goes in, Audio goes out, no doubling back through a stream. But, there’s clearly a bug in the implementation of &lt;strong&gt;say&lt;/strong&gt; that makes the run time be something larger than O(n^2). Apparently having &lt;strong&gt;say&lt;/strong&gt; spew out hours of audio for an entire book was never a tested use case. Except, &lt;strong&gt;say&lt;/strong&gt; has been around for as long as MacOSX has been around, one would think all the bugs have been worked out. Apparently not; you have to test and test and test, there will always be surprises.&lt;/p&gt;</content><author><name>Abhinav Saxena</name></author><category term="posts" /><summary type="html">I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - Steve Jobs and the NeXT Big Thing.</summary></entry><entry><title type="html">The Perspicacious Polyglot’s Programming Language Plethora</title><link href="https://www.abhinavsaxena.com/moonwalk/polyglot/2019/01/17/polyglot-setup.html" rel="alternate" type="text/html" title="The Perspicacious Polyglot’s Programming Language Plethora" /><published>2019-01-17T19:40:43+00:00</published><updated>2019-01-17T19:40:43+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/polyglot/2019/01/17/polyglot-setup</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/polyglot/2019/01/17/polyglot-setup.html">&lt;p&gt;I like to play around with lots of different programming languages, but install too many and they pollute your working environment, so it’s better to have them installed as a user instead of root. 
 Here’s a way to get several of them installed into your unix user directory. 
 If things go wrong, or you get bored you can easily &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rm -rf&lt;/code&gt; the installation.&lt;/p&gt;
 
@@ -219,7 +278,7 @@ To configure your current shell run source $HOME/.cargo/env
 cargo: /home/john/.cargo/bin/cargo
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;whereis rustc
 cargo: /home/john/.cargo/bin/rustc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Abhinav Saxena</name></author><category term="polyglot" /><summary type="html">I like to play around with lots of different programming languages, but install too many and they pollute your working environment, so it’s better to have them installed as a user instead of root. Here’s a way to get several of them installed into your unix user directory. If things go wrong, or you get bored you can easily rm -rf the installation.</summary></entry><entry><title type="html">Gradual Typing With Javascript and VS Code</title><link href="https://www.abhinavsaxena.com/moonwalk/javascript/2018/12/29/javascript-gradual-typing.html" rel="alternate" type="text/html" title="Gradual Typing With Javascript and VS Code" /><published>2018-12-29T19:40:43+00:00</published><updated>2018-12-29T19:40:43+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/javascript/2018/12/29/javascript-gradual-typing</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/javascript/2018/12/29/javascript-gradual-typing.html">&lt;p&gt;Recently I had to write a file uploader for AWS S3 in node.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Abhinav Saxena</name></author><category term="polyglot" /><summary type="html">I like to play around with lots of different programming languages, but install too many and they pollute your working environment, so it’s better to have them installed as a user instead of root. Here’s a way to get several of them installed into your unix user directory. If things go wrong, or you get bored you can easily rm -rf the installation.</summary></entry><entry><title type="html">Gradual Typing With Javascript and VS Code</title><link href="https://www.abhinavsaxena.com/moonwalk/posts/2018/12/29/javascript-gradual-typing.html" rel="alternate" type="text/html" title="Gradual Typing With Javascript and VS Code" /><published>2018-12-29T19:40:43+00:00</published><updated>2018-12-29T19:40:43+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/posts/2018/12/29/javascript-gradual-typing</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/posts/2018/12/29/javascript-gradual-typing.html">&lt;p&gt;Recently I had to write a file uploader for AWS S3 in node.&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AWS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;aws-sdk&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -247,9 +306,11 @@ cargo: /home/john/.cargo/bin/rustc
 &lt;p&gt;You’ve probably heard of the type annotated javascript superset language &lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;TypeScript&lt;/a&gt; and its supplementary type definition repository &lt;a href=&quot;http://definitelytyped.org/&quot;&gt;Definitely Typed&lt;/a&gt;, which contains definitions for many popular NPM packages including AWS-SDK. This would be great except switching from Javascript to TypeScript requires adoption from the rest of the team, separate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ts&lt;/code&gt; files, and modifications to your build process. Is there any way to get this without futzing with your existing project?&lt;/p&gt;
 
 &lt;p&gt;If you’re using the Visual Studio Code editor it turns out you can enable &lt;a href=&quot;https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files&quot;&gt;type checking on a per-file basis&lt;/a&gt; by adding the comment to the beginning of the file&lt;/p&gt;
+
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// @ts-check&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;to the beginning of your file. 
+
+&lt;p&gt;to the beginning of your file.
 &lt;img src=&quot;typeError.png&quot; alt=&quot;typeerror&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The parameters variable is highlighted in red, and when you mouseover it you’ll see:&lt;/p&gt;
@@ -262,6 +323,7 @@ const parameters: {
     Body: string;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;There are a bunch of things happening here!&lt;/p&gt;
 
 &lt;p&gt;It turns out VS Code has pulled in the AWS S3 type definitions in the background. The type of the parameter parameter that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s3.upload&lt;/code&gt; takes is called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PutObjectRequest&lt;/code&gt;. The Type Script compiler is kvetching over a missing required field it needs to say the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; variable is of that type. There’s nothing stopping you from running the code as it stands here, it’ll just crash at runtime.&lt;/p&gt;
@@ -269,8 +331,10 @@ const parameters: {
 &lt;p&gt;When you add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Key&lt;/code&gt; parameter (the unique file key in an S3 bucket), the red squiggly underline disappears and you have a properly formed object.&lt;/p&gt;
 
 &lt;p&gt;The same checking is useful for output types.&lt;/p&gt;
+
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Location&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;You can mouseover s3.upload and see it returns a type of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AWS.S3.ManagedUpload.SendData&lt;/code&gt;, which means the destructuring operation &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ Location }&lt;/code&gt; is guaranteed to work and Location will be populated.&lt;/p&gt;
 
 &lt;p&gt;Links:&lt;/p&gt;
@@ -282,4 +346,4 @@ const parameters: {
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://usejsdoc.org/tags-type.html&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;More to come, as with introducing gradual typing, learning this stuff is also a gradual process that pays you back the more you put into it.&lt;/p&gt;</content><author><name>Abhinav Saxena</name></author><category term="javascript" /><summary type="html">Recently I had to write a file uploader for AWS S3 in node.</summary></entry></feed>
+&lt;p&gt;More to come, as with introducing gradual typing, learning this stuff is also a gradual process that pays you back the more you put into it.&lt;/p&gt;</content><author><name>Abhinav Saxena</name></author><category term="posts" /><summary type="html">Recently I had to write a file uploader for AWS S3 in node.</summary></entry></feed>

@@ -64,7 +64,7 @@
 <body>
     <main class="page-content" aria-label="Content">
         <div class="w">
-            <a href="https://www.abhinavsaxena.com/moonwalk">home..</a>
+            <a href="https://www.abhinavsaxena.com/moonwalk">home!!</a>
 <h1>Poor Man's Audiobook Reader</h1>
 <p>I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - <a href="https://www.goodreads.com/book/show/226316.Steve_Jobs_the_NeXT_Big_Thing">Steve Jobs and the NeXT Big Thing</a>.
 <img src="jobscover.png" alt="Steve Jobs and the NeXT Big Thing" width="250" /></p>
@@ -113,12 +113,13 @@
 <p>Let’s break this down into 1000 line chunks, and feed each one to <strong>say</strong>.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>split -d -l 1000 Steve_Jobs_\&amp;_the_NeXT_Big_Thing_1993_djvu.txt Steve1000__
-time for file in Steve1000__*; do time say \
+time for file in Steve1000__*; do say \
     -f "$file" \
     -o "$file.m4b" \
     --file-format=m4bf \
     --rate=150 \
-    --progress; done
+    --progress; \
+done;
 </code></pre></div></div>
 
 <p>Well that’s interesting, the process completed in 10 minutes and produced 14 files that comprise the audio book.</p>

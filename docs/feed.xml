@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.abhinavsaxena.com/moonwalk/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.abhinavsaxena.com/moonwalk/" rel="alternate" type="text/html" /><updated>2025-02-10T18:19:23+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/feed.xml</id><title type="html">🌲 johncsimon.github.io 🐦</title><subtitle>got some downtime so how&apos;s about we starts ourselves a blog ...</subtitle><author><name>Abhinav Saxena</name></author><entry><title type="html">Poor Man’s Audiobook Reader</title><link href="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html" rel="alternate" type="text/html" title="Poor Man’s Audiobook Reader" /><published>2025-02-09T18:04:18+00:00</published><updated>2025-02-09T18:04:18+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html">&lt;p&gt;I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - &lt;a href=&quot;https://www.goodreads.com/book/show/226316.Steve_Jobs_the_NeXT_Big_Thing&quot;&gt;Steve Jobs and the NeXT Big Thing&lt;/a&gt;.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.abhinavsaxena.com/moonwalk/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.abhinavsaxena.com/moonwalk/" rel="alternate" type="text/html" /><updated>2025-02-14T07:03:36+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/feed.xml</id><title type="html">🌲 johncsimon.github.io 🐦</title><subtitle>sabbatical blog! 🚀</subtitle><author><name>Abhinav Saxena</name></author><entry><title type="html">Poor Man’s Audiobook Reader</title><link href="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html" rel="alternate" type="text/html" title="Poor Man’s Audiobook Reader" /><published>2025-02-09T18:04:18+00:00</published><updated>2025-02-09T18:04:18+00:00</updated><id>https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader</id><content type="html" xml:base="https://www.abhinavsaxena.com/moonwalk/posts/2025/02/09/poor-mans-audiobook-reader.html">&lt;p&gt;I’m currently reading a contemporary history of Steve Jobs’s time with the creation and unraveling of NeXT Computer - &lt;a href=&quot;https://www.goodreads.com/book/show/226316.Steve_Jobs_the_NeXT_Big_Thing&quot;&gt;Steve Jobs and the NeXT Big Thing&lt;/a&gt;.
 &lt;img src=&quot;jobscover.png&quot; alt=&quot;Steve Jobs and the NeXT Big Thing&quot; width=&quot;250&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Today, popular culture paints him as an iconic figure, but when the book was written in 1993 NeXT was a money pit, only kept alive with cash infusions from outside investors as money was burnt. It’s a wild ride, I highly recommend it, especially with hindsight.&lt;/p&gt;
@@ -45,12 +45,13 @@
 &lt;p&gt;Let’s break this down into 1000 line chunks, and feed each one to &lt;strong&gt;say&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;split -d -l 1000 Steve_Jobs_\&amp;amp;_the_NeXT_Big_Thing_1993_djvu.txt Steve1000__
-time for file in Steve1000__*; do time say \
+time for file in Steve1000__*; do say \
     -f &quot;$file&quot; \
     -o &quot;$file.m4b&quot; \
     --file-format=m4bf \
     --rate=150 \
-    --progress; done
+    --progress; \
+done;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Well that’s interesting, the process completed in 10 minutes and produced 14 files that comprise the audio book.&lt;/p&gt;

@@ -56,12 +56,13 @@ Let's break this down into 1000 line chunks, and feed each one to **say**.
 
 ```
 split -d -l 1000 Steve_Jobs_\&_the_NeXT_Big_Thing_1993_djvu.txt Steve1000__
-time for file in Steve1000__*; do time say \
+time for file in Steve1000__*; do say \
     -f "$file" \
     -o "$file.m4b" \
     --file-format=m4bf \
     --rate=150 \
-    --progress; done
+    --progress; \
+done;
 ```
 
 Well that's interesting, the process completed in 10 minutes and produced 14 files that comprise the audio book.

@@ -25,7 +25,7 @@ Except... text to speech generation is a high CPU task, Apple iOS doesn't like l
 So, **we need an offline bulk text to speech generator**. Luckily, macOS provides just the very thing hidden as one of the standard MacOS command line utilities - this is the **say** utility.
 
 ```
-say -v Bad\ News "Captain, you are needed on the bridge" -w 200
+say -v Bad\ News "Captain, you are needed on the bridge" --rate=150
 ```
 
 example call - see the man pages "man say"
@@ -39,7 +39,7 @@ say --voice=Ava \ # use '?' to get a list of all the available voices
     --progress # print the progress
 ```
 
-This is awesome! But after letting it run for one later the CPU is still at 100% and the process is consuming 2.3 GB of RAM and the output file MyOutoutFile.m4b is about 50 MB on disk.
+This is awesome! But after letting it run for one hour the CPU is still at 100% and the process is consuming 2.3 GB of RAM and the output file MyOutoutFile.m4b is about 50 MB on disk.
 
 Something is up ... let's see the word count of this file.
 
@@ -50,7 +50,7 @@ wc -lw Steve_Jobs_\&_the_NeXT_Big_Thing_1993_djvu.txt
 
 so 15000 lines, 122000 words - at 150 words / minute this is about 13 hours to read through all of it, and an audiobook of that length is roughly 1 GB.
 
-Maybe the compression or some other non-default setting is mucking with this? I remove everything except the input and output files parameters and I still see the same poor performnace.
+Maybe the compression or some other non-default setting is mucking with this? I remove everything except the input and output files parameters and I still see the same poor performance.
 
 Let's break this down into 1000 line chunks, and feed each one to **say**.
 

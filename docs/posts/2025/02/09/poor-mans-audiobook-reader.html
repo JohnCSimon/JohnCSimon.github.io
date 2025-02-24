@@ -85,7 +85,7 @@
 
 <p>So, <strong>we need an offline bulk text to speech generator</strong>. Luckily, macOS provides just the very thing hidden as one of the standard MacOS command line utilities - this is the <strong>say</strong> utility.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>say -v Bad\ News "Captain, you are needed on the bridge" -w 200
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>say -v Bad\ News "Captain, you are needed on the bridge" --rate=150
 </code></pre></div></div>
 
 <p>example call - see the man pages “man say”</p>
@@ -98,7 +98,7 @@
     <span class="nt">--progress</span> <span class="c"># print the progress</span>
 </code></pre></div></div>
 
-<p>This is awesome! But after letting it run for one later the CPU is still at 100% and the process is consuming 2.3 GB of RAM and the output file MyOutoutFile.m4b is about 50 MB on disk.</p>
+<p>This is awesome! But after letting it run for one hour the CPU is still at 100% and the process is consuming 2.3 GB of RAM and the output file MyOutoutFile.m4b is about 50 MB on disk.</p>
 
 <p>Something is up … let’s see the word count of this file.</p>
 
@@ -108,7 +108,7 @@
 
 <p>so 15000 lines, 122000 words - at 150 words / minute this is about 13 hours to read through all of it, and an audiobook of that length is roughly 1 GB.</p>
 
-<p>Maybe the compression or some other non-default setting is mucking with this? I remove everything except the input and output files parameters and I still see the same poor performnace.</p>
+<p>Maybe the compression or some other non-default setting is mucking with this? I remove everything except the input and output files parameters and I still see the same poor performance.</p>
 
 <p>Let’s break this down into 1000 line chunks, and feed each one to <strong>say</strong>.</p>
 
